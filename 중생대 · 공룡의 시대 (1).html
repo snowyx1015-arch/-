@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>중생대 · 공룡의 시대</title>
+<style>
+:root{--pk:#ff8fb8;--pk2:#ffe0ec;--mint:#bdf0dc;--ink:#5a3a4a;--bg:#fff6fa;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Jua","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.5}
+section{max-width:960px;margin:22px auto;padding:0 12px}
+h2{margin:0 0 8px;font-size:1.35rem;display:inline-block;background:var(--pk);color:#fff;padding:4px 16px;border-radius:20px;box-shadow:0 3px 0 #e0709a}
+.card{background:#fff;border:3px solid var(--pk2);border-radius:26px;padding:12px;box-shadow:0 6px 0 var(--pk2)}
+svg{width:100%;height:auto;display:block}
+.cap{font-size:.95rem;margin:6px 4px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:8px 0}
+button{font:inherit;background:var(--pk);color:#fff;border:0;border-radius:18px;padding:6px 16px;cursor:pointer;box-shadow:0 3px 0 #e0709a}
+button:active{transform:translateY(2px)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.g2{grid-template-columns:1fr}}
+.pill{background:var(--pk2);border-radius:14px;padding:6px 10px;font-size:.9rem;text-align:center}
+.clk{cursor:pointer}.clk:hover{filter:brightness(1.08)}
+#md{position:fixed;inset:0;background:#0005;display:none;align-items:center;justify-content:center;z-index:9;padding:14px}
+#md.on{display:flex}
+#mb{background:#fff;border:4px solid var(--pk);border-radius:28px;max-width:520px;max-height:85vh;overflow:auto;padding:16px 20px;animation:pop .3s}
+#mb h3{margin:0 0 6px;color:#e0709a}#mb li{margin:3px 0;font-size:.92rem}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+@keyframes walk{from{transform:translateX(-160px)}to{transform:translateX(820px)}}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes cloud{from{transform:translateX(-120px)}to{transform:translateX(900px)}}
+@keyframes swim{0%{transform:translate(0,0)}50%{transform:translate(60px,-14px)}100%{transform:translate(0,0)}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes fall{from{transform:translate(0,0)}to{transform:translate(-190px,200px)}}
+@keyframes flash{50%{opacity:.2}}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.walk{animation:walk 22s linear infinite}.bob{animation:bob .6s ease-in-out infinite}
+.cl{animation:cloud 40s linear infinite}.sw{animation:swim 5s ease-in-out infinite}
+.gr{transform-box:fill-box;transform-origin:bottom;animation:grow 2.5s ease-out infinite alternate}
+.ic{transition:transform 1.5s ease,opacity 1.5s}
+#clim{transition:background 1.6s}
+#clim.warm{background:linear-gradient(#ff9a8b,#ffd1a8)}#clim.cold{background:linear-gradient(#7ab8ff,#d6ecff)}
+#clim .gl{transform-box:fill-box;transform-origin:bottom;transition:transform 1.6s}
+#clim.warm .gl{transform:scale(.35)}#clim.cold .gl{transform:scale(1.1)}
+.fx{transition:transform 1.4s ease}
+footer{background:var(--pk2);padding:18px 14px;margin-top:30px;text-align:center;font-size:.85rem}
+footer a{color:#c2447a;word-break:break-all}
+section,footer{display:none}section.on,footer.on{display:block;animation:pg .5s}
+@keyframes pg{from{opacity:0;transform:translateX(30px)}}
+body{padding-bottom:78px}
+footer{max-width:760px;margin:30px auto;border-radius:26px}
+#nav{position:fixed;left:0;right:0;bottom:0;z-index:5;background:#fffe;backdrop-filter:blur(6px);border-top:3px solid var(--pk2);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:6px;justify-content:center}
+#dots{display:flex;gap:4px;overflow-x:auto;max-width:calc(100vw - 150px)}
+#dots b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--pk2);font-size:.75rem;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
+#dots b.on{background:var(--pk);color:#fff;transform:scale(1.15)}
+#nav button{padding:6px 14px}
+</style></head><body>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="trex" viewBox="0 0 130 95"><path d="M28 55Q2 50 4 28Q30 40 46 48Z" fill="#7fd6a8"/><ellipse cx="62" cy="55" rx="36" ry="25" fill="#7fd6a8"/><ellipse cx="66" cy="63" rx="22" ry="15" fill="#d9fbe8"/><ellipse cx="94" cy="32" rx="26" ry="20" fill="#7fd6a8"/><path d="M80 44Q104 56 118 42" fill="#d9fbe8" stroke="#4fae82" stroke-width="2"/><circle cx="96" cy="26" r="5" fill="#3a2a3a"/><circle cx="98" cy="24" r="1.8" fill="#fff"/><circle cx="104" cy="38" r="5" fill="#ff9fc2" opacity=".8"/><path d="M106 41l3 5 3-5M114 41l2 4 2-4" fill="#fff"/><path d="M82 55q10 2 12 10" stroke="#4fae82" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="48" y="70" width="14" height="20" rx="7" fill="#6cc79a"/><rect x="72" y="70" width="14" height="20" rx="7" fill="#6cc79a"/><path d="M80 14l4-8 4 8M66 22l3-7 4 7" fill="#ff8fb8"/></symbol>
+<symbol id="brach" viewBox="0 0 150 130"><path d="M112 60Q140 52 148 84Q146 92 138 86Q126 76 108 88Z" fill="#ffd27f"/><rect x="62" y="90" width="18" height="34" rx="9" fill="#f2b04a"/><rect x="108" y="88" width="18" height="36" rx="9" fill="#f2b04a"/><ellipse cx="80" cy="72" rx="48" ry="31" fill="#ffd27f"/><ellipse cx="82" cy="88" rx="34" ry="15" fill="#fff0c9"/><path d="M46 66Q18 46 30 18" stroke="#ffd27f" stroke-width="24" fill="none" stroke-linecap="round"/><path d="M52 72Q30 52 40 24" stroke="#fff0c9" stroke-width="6" fill="none" stroke-linecap="round"/><ellipse cx="34" cy="14" rx="18" ry="13" fill="#ffd27f"/><circle cx="22" cy="8" r="3" fill="#ffb86b"/><circle cx="37" cy="10" r="4.5" fill="#3a2a3a"/><circle cx="38.5" cy="8.5" r="1.6" fill="#fff"/><path d="M33 5l-3-4M38 4l0-5" stroke="#3a2a3a" stroke-width="1.5"/><circle cx="43" cy="20" r="4.5" fill="#ff9fc2"/><path d="M24 20Q32 26 40 22" stroke="#c26a4a" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M30 -2l-9-5v10zM30 -2l9-5v10z" fill="#ff8fb8" transform="translate(8 4)"/><g fill="#ffb86b"><circle cx="58" cy="62" r="6"/><circle cx="80" cy="54" r="7"/><circle cx="102" cy="62" r="6"/><circle cx="70" cy="76" r="4"/><circle cx="96" cy="78" r="4"/></g><rect x="48" y="92" width="20" height="34" rx="10" fill="#ffc55f"/><rect x="90" y="92" width="20" height="34" rx="10" fill="#ffc55f"/><g fill="#fff"><ellipse cx="54" cy="122" rx="3" ry="2.5"/><ellipse cx="62" cy="122" rx="3" ry="2.5"/><ellipse cx="96" cy="122" rx="3" ry="2.5"/><ellipse cx="104" cy="122" rx="3" ry="2.5"/></g></symbol>
+<symbol id="amm" viewBox="0 0 100 100"><path d="M10 78Q4 96 30 98L38 84Z" fill="#ffb3a7"/><path d="M50 12A38 38 0 1 1 12 50A28 28 0 1 1 50 22A18 18 0 1 1 32 40A9 9 0 1 1 50 44" fill="#ffd9c7" stroke="#ff8f7a" stroke-width="5" stroke-linecap="round"/><circle cx="64" cy="62" r="3" fill="#3a2a3a"/><path d="M50 12Q80 20 88 50" stroke="#ff8f7a" stroke-width="2" fill="none"/></symbol>
+<symbol id="ginkgo" viewBox="0 0 100 140"><rect x="45" y="70" width="10" height="70" rx="4" fill="#a8744f"/><path d="M50 90L22 60M50 100L80 66" stroke="#a8744f" stroke-width="6"/><g fill="#ffe66d" stroke="#f0c93a" stroke-width="2"><path d="M50 4Q18 8 14 34Q32 40 50 36Q68 40 86 34Q82 8 50 4Z"/><path d="M22 58Q4 54 2 76Q14 82 22 76Z"/><path d="M80 62Q96 56 98 80Q86 84 80 78Z"/></g><circle cx="42" cy="22" r="3" fill="#3a2a3a"/><circle cx="58" cy="22" r="3" fill="#3a2a3a"/><circle cx="36" cy="28" r="3" fill="#ff9fc2"/><circle cx="64" cy="28" r="3" fill="#ff9fc2"/></symbol>
+<symbol id="fern" viewBox="0 0 100 120"><path d="M50 118Q48 60 70 8" stroke="#52b86e" stroke-width="5" fill="none"/><g fill="#7fdc95"><ellipse cx="46" cy="100" rx="22" ry="6" transform="rotate(-20 46 100)"/><ellipse cx="62" cy="86" rx="22" ry="6" transform="rotate(20 62 86)"/><ellipse cx="44" cy="70" rx="20" ry="6" transform="rotate(-20 44 70)"/><ellipse cx="64" cy="52" rx="18" ry="5" transform="rotate(20 64 52)"/><ellipse cx="52" cy="34" rx="14" ry="5" transform="rotate(-20 52 34)"/></g></symbol>
+<symbol id="coral" viewBox="0 0 100 100"><path d="M50 96V50M50 70L22 40V18M50 60L78 34V12M50 80L30 66" stroke="#ff8fb8" stroke-width="10" stroke-linecap="round" fill="none"/><g fill="#ffd1e3"><circle cx="22" cy="16" r="6"/><circle cx="78" cy="10" r="6"/><circle cx="50" cy="48" r="6"/></g></symbol>
+<symbol id="pollen" viewBox="0 0 100 100"><circle cx="50" cy="50" r="32" fill="#ffe66d" stroke="#f0c93a" stroke-width="4"/><g fill="#f5b800"><circle cx="38" cy="40" r="5"/><circle cx="60" cy="36" r="5"/><circle cx="62" cy="62" r="5"/><circle cx="38" cy="62" r="5"/></g><circle cx="46" cy="50" r="3" fill="#3a2a3a"/><circle cx="58" cy="50" r="3" fill="#3a2a3a"/></symbol>
+<symbol id="foot" viewBox="0 0 100 100"><rect x="4" y="4" width="92" height="92" rx="20" fill="#d8b894"/><path d="M50 78Q30 74 36 54Q50 44 64 54Q70 74 50 78Z" fill="#b8926c"/><g fill="#b8926c"><ellipse cx="28" cy="36" rx="6" ry="9"/><ellipse cx="50" cy="28" rx="6" ry="10"/><ellipse cx="72" cy="36" rx="6" ry="9"/></g></symbol>
+<symbol id="mam" viewBox="0 0 60 50"><ellipse cx="30" cy="30" rx="20" ry="14" fill="#c9a27e"/><circle cx="48" cy="22" r="10" fill="#c9a27e"/><circle cx="40" cy="12" r="4" fill="#c9a27e"/><circle cx="51" cy="20" r="2" fill="#3a2a3a"/><path d="M10 30Q0 24 4 14" stroke="#c9a27e" stroke-width="4" fill="none"/></symbol>
+</defs></svg>
+
+<!-- 0 HERO -->
+<section class="on" style="margin-top:12px"><div class="card" style="padding:0;overflow:hidden;position:relative">
+<svg viewBox="0 0 800 330" id="hero"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc2dc"/><stop offset="1" stop-color="#fff2d6"/></linearGradient></defs>
+<rect width="800" height="330" fill="url(#sk)"/><circle cx="690" cy="62" r="34" fill="#ffe66d"/>
+<g class="cl" opacity=".9"><ellipse cx="0" cy="50" rx="46" ry="16" fill="#fff"/><ellipse cx="22" cy="40" rx="26" ry="16" fill="#fff"/></g>
+<g class="cl" style="animation-delay:-20s"><ellipse cx="0" cy="100" rx="40" ry="13" fill="#fff"/><ellipse cx="18" cy="92" rx="22" ry="13" fill="#fff"/></g>
+<g class="clk" onclick="show('volc')"><path d="M470 250L520 110H560L610 250Z" fill="#c48a9f"/><path d="M520 110H560L552 124H528Z" fill="#ff6b6b"/><circle cx="540" cy="90" r="14" fill="#ffb3b3" opacity=".7"><animate attributeName="cy" values="100;50" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle></g>
+<path d="M0 250Q200 225 400 250T800 245V330H0Z" fill="#9fe3b5"/>
+<rect x="560" y="255" width="240" height="75" fill="#8fd3f4" opacity=".9"/>
+<g class="sw clk" onclick="show('amm')"><use href="#amm" x="640" y="262" width="52" height="52"/></g>
+<g class="walk"><g class="bob clk" onclick="show('trex')"><use href="#trex" x="0" y="168" width="130" height="95"/></g></g>
+<g class="walk" style="animation-duration:34s;animation-delay:-8s"><g class="bob clk" onclick="show('brach')"><use href="#brach" x="0" y="140" width="150" height="130"/></g></g>
+<use href="#ginkgo" x="60" y="150" width="70" height="98" class="clk" onclick="show('gink')"/>
+</svg>
+<div style="position:absolute;left:14px;top:10px;background:#fffd;border-radius:20px;padding:4px 16px"><b style="font-size:1.5rem;color:#e0709a">🦕 중생대 · 공룡의 시대</b><div style="font-size:.85rem">통합과학 7반 4모둠 · 그림을 콕! 눌러보세요</div></div>
+</div></section>
+
+<!-- 1 시대 구분 -->
+<section><h2>① 시대 구분</h2><div class="card g2">
+<div><svg viewBox="0 0 240 240" id="pie"></svg><p class="cap" style="text-align:center">분홍 조각을 눌러보세요 👆</p></div>
+<div><div class="pill" style="font-size:1rem;margin-bottom:6px">약 2억 5000만 년 전 ▶ 약 6600만 년 전</div>
+<svg viewBox="0 0 420 150"><rect x="5" y="40" width="130" height="40" rx="14" fill="#ffb86b"/><rect x="140" y="40" width="130" height="40" rx="14" fill="#7fd6a8"/><rect x="275" y="40" width="140" height="40" rx="14" fill="#ff8fb8"/>
+<g font-size="14" text-anchor="middle" fill="#fff"><text x="70" y="66">트라이아스기</text><text x="205" y="66">쥐라기</text><text x="345" y="66">백악기</text></g>
+<g font-size="10.5" text-anchor="middle" fill="#5a3a4a"><text x="70" y="98">2억 4,500만~2억 800만 년 전</text><text x="205" y="98">2억 800만~1억 4,500만 년 전</text><text x="345" y="98">1억 4,500만~6,500만 년 전</text>
+<text x="70" y="116">하나의 초대륙 판게아</text><text x="205" y="116">판게아가 쪼개지기 시작</text><text x="345" y="116">오늘날과 비슷한 대륙 형태</text></g>
+<g font-size="22"><text x="6" y="28">💥</text><text x="388" y="28">☄️</text></g></svg>
+<div class="pill">시작: 고생대 말 초대륙 판게아 형성으로 인한 대멸종</div><div class="pill" style="margin-top:4px">끝: 소행성 충돌로 인한 대멸종</div></div></div></section>
+
+<!-- 2 기후 -->
+<section><h2>② 기후</h2><div class="card">
+<div id="clim" class="warm" style="border-radius:20px;overflow:hidden"><svg viewBox="0 0 800 240">
+<g class="gl"><path d="M40 230L120 90L170 150L230 70L330 230Z" fill="#e8f6ff" stroke="#a8d8f5" stroke-width="3"/><circle cx="170" cy="190" r="5" fill="#3a2a3a"/><circle cx="210" cy="190" r="5" fill="#3a2a3a"/><circle cx="160" cy="200" r="5" fill="#ff9fc2"/><circle cx="220" cy="200" r="5" fill="#ff9fc2"/></g>
+<g class="gl"><path d="M520 230L590 120L640 170L700 100L780 230Z" fill="#e8f6ff" stroke="#a8d8f5" stroke-width="3"/></g>
+<path d="M0 230H800V240H0Z" fill="#6c4a5a"/>
+<g class="clk" onclick="show('volc')"><path d="M360 230L400 120H440L480 230Z" fill="#9a5f78"/><path d="M400 120H440L434 132H406Z" fill="#ff6b6b"/><circle cx="420" cy="100" r="12" fill="#ffb3b3" opacity=".7"><animate attributeName="cy" values="110;40" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.8s" repeatCount="indefinite"/></circle></g>
+</svg></div>
+<div class="row"><button onclick="clim('warm')">🔥 따뜻한 시기</button><button onclick="clim('cold')" style="background:#6aa8f0;box-shadow:0 3px 0 #4a80c8">❄️ 추운 시기</button></div>
+<div class="g2"><div class="pill">전반적으로 온난, 빙하기 없음</div><div class="pill">활발한 화산 활동: 초대륙 판게아가 쪼개지는 과정에서 지각 변동과 대규모 화산 활동이 끊이지 않았다</div></div></div></section>
+
+<!-- 3 대기·해양 -->
+<section><h2>③ 대기·해양 환경</h2><div class="card">
+<svg viewBox="0 0 800 300"><rect width="800" height="300" fill="#fff4dc"/>
+<g id="ice" class="fx" style="transform-origin:40px 150px"><path d="M0 150L40 90L90 60L140 100L170 150Z" fill="#fff" stroke="#a8d8f5" stroke-width="3"/><text x="30" y="135" font-size="12" fill="#5a3a4a">남반구 빙상</text></g>
+<g id="sea" class="fx"><rect x="0" y="150" width="800" height="150" fill="#8fd3f4" opacity=".85"/><path d="M0 150Q50 140 100 150T200 150T300 150T400 150T500 150T600 150T700 150T800 150" fill="#8fd3f4"/></g>
+<rect x="0" y="260" width="800" height="40" fill="#e8c9a0"/>
+<g class="sw"><use href="#amm" x="300" y="200" width="60" height="60"/></g>
+<g class="clk" onclick="show('amm')"><use href="#amm" x="560" y="225" width="40" height="40"/></g>
+<line x1="760" y1="40" x2="760" y2="280" stroke="#e0709a" stroke-width="2" stroke-dasharray="4"/>
+<g id="lv" class="fx"><path d="M740 150h40l-20 12z" fill="#e0709a"/><text x="660" y="146" font-size="13" fill="#e0709a">해수면</text></g>
+<text x="400" y="30" text-anchor="middle" font-size="16" fill="#e0709a" id="co2t">CO₂ 높음 (2000ppm 이상)</text>
+</svg>
+<div class="row"><button onclick="co2(1)">CO₂ 높을 때</button><button onclick="co2(0)" style="background:#6aa8f0;box-shadow:0 3px 0 #4a80c8">CO₂ 낮을 때</button></div>
+<svg viewBox="0 0 800 70"><rect x="20" y="22" width="760" height="22" rx="11" fill="#ffe0ec"/><rect x="20" y="22" width="330" height="22" rx="11" fill="#ff8fb8"><animate attributeName="width" values="40;740;40" dur="8s" repeatCount="indefinite"/></rect><text x="20" y="14" font-size="13" fill="#5a3a4a">CO₂ 250ppm ↔ 2000ppm 이상, 큰 폭을 오감 (오늘날과 비슷한 250ppm)</text><text x="20" y="64" font-size="13" fill="#5a3a4a">O₂: 호박 속 동위원소비를 측정한 2013년 연구 — 백악기의 산소 농도는 분명 현대보다 낮았다</text></svg>
+<div class="g2"><div class="pill">CO₂가 높을 땐 남반구의 빙상이 줄어들고, 낮아지면 다시 늘어난다</div><div class="pill">그렇지만 빙하의 면적은 크지 않았다</div></div></div></section>
+
+<!-- 4 수륙 분포 -->
+<section><h2>④ 수륙 분포</h2><div class="card">
+<svg viewBox="0 0 600 300"><style>.pc{transform-box:fill-box;transform-origin:center;transition:transform 1s ease}</style><rect width="600" height="300" rx="20" fill="#bfe8fb"/><g id="cont"></g>
+<text x="14" y="22" font-size="12" fill="#3d7a5a">🟩 북쪽 대륙</text><text x="14" y="38" font-size="12" fill="#9a6a1a">🟧 남쪽 대륙</text>
+<text id="pg" x="300" y="20" text-anchor="middle" font-size="15" fill="#e0709a">판게아</text></svg>
+<div class="row"><button onclick="drift(0)">🧩 합치기</button><button onclick="drift(100)">💥 갈라지기</button><input id="rg" type="range" min="0" max="100" value="0" oninput="drift(this.value,1)"></div>
+<div class="g2"><div class="pill">트라이아스기에서 쥐라기에 걸친 시기에 판게아가 북반구와 남반구로 분리되는 대륙이동을 진행함</div><div class="pill" id="pst">트라이아스기: 지구상의 모든 대륙이 하나의 초대륙 판게아</div></div></div></section>
+
+<!-- 5 동물 -->
+<section><h2>⑤ 대표 동물</h2><div class="card">
+<svg viewBox="0 0 800 300"><rect width="800" height="300" fill="#e6f8ff"/><rect y="170" width="800" height="130" fill="#9fe3b5"/><rect x="520" y="170" width="280" height="130" fill="#8fd3f4"/>
+<g class="walk" style="animation-duration:18s"><g class="bob clk" onclick="show('trex')"><use href="#trex" x="0" y="100" width="170" height="124"/></g></g>
+<g class="walk" style="animation-duration:30s;animation-delay:-12s"><g class="bob clk" onclick="show('brach')"><use href="#brach" x="0" y="60" width="210" height="182"/></g></g>
+<g class="sw clk" onclick="show('amm')"><use href="#amm" x="600" y="200" width="80" height="80"/></g>
+<text x="20" y="290" font-size="14" fill="#3d7a5a">🌿 육상생물 (티라노·브라키오)</text><text x="560" y="292" font-size="14" fill="#2b6a8a">🌊 해양생물 (암모나이트)</text></svg>
+<div class="row"><button onclick="show('trex')">티라노사우루스</button><button onclick="show('brach')">브라키오사우루스</button><button onclick="show('amm')">암모나이트</button></div></div></section>
+
+<!-- 6 식물 -->
+<section><h2>⑥ 대표 식물</h2><div class="card g2">
+<div><svg viewBox="0 0 400 220"><rect width="400" height="220" rx="16" fill="#e8fbe8"/><rect y="190" width="400" height="30" fill="#b98a5f"/>
+<g class="clk" onclick="show('gink')"><use href="#ginkgo" class="gr" x="150" y="30" width="100" height="160"/></g>
+<use href="#ginkgo" class="gr" x="40" y="80" width="60" height="110" style="animation-delay:.5s"/><use href="#ginkgo" class="gr" x="300" y="70" width="64" height="120" style="animation-delay:1s"/></svg>
+<p class="cap">은행나무 — 살아있는 화석 (눌러보기)</p></div>
+<div><svg viewBox="0 0 400 220"><rect width="400" height="220" rx="16" fill="#fff6e0"/>
+<use href="#fern" x="10" y="40" width="90" height="108"/><text x="55" y="165" text-anchor="middle" font-size="13">양치식물(고생대)</text><text x="55" y="182" text-anchor="middle" font-size="12">포자 번식</text>
+<path d="M30 20q-8 14 0 24q8-10 0-24M70 14q-8 14 0 24q8-10 0-24" fill="#6aa8f0"><animateTransform attributeName="transform" type="translate" values="0 0;0 12;0 0" dur="2s" repeatCount="indefinite"/></path>
+<text x="50" y="12" font-size="11" fill="#2b6a8a">물 필요!</text>
+<path d="M145 110h90" stroke="#e0709a" stroke-width="5" marker-end="url(#ar)"/><text x="190" y="100" text-anchor="middle" font-size="12">변화</text>
+<use href="#ginkgo" x="270" y="30" width="60" height="100"/><text x="300" y="150" text-anchor="middle" font-size="13">겉씨식물(중생대)</text><text x="300" y="167" text-anchor="middle" font-size="12">씨앗 + 꽃가루(풍매)</text>
+<g fill="#ffe66d"><circle cx="240" cy="70" r="5"><animate attributeName="cx" values="230;380" dur="3s" repeatCount="indefinite"/></circle><circle cx="240" cy="95" r="4"><animate attributeName="cx" values="230;380" dur="2.2s" repeatCount="indefinite"/></circle></g>
+<defs><marker id="ar" markerWidth="6" markerHeight="6" refX="3" refY="3"><path d="M0 0L6 3L0 6z" fill="#e0709a"/></marker></defs></svg>
+<p class="cap">양치식물 → 겉씨식물: 물이 적은 내륙까지 퍼져나갔다</p></div></div></section>
+
+<!-- 7 표준화석 -->
+<section><h2>⑦ 표준화석</h2><div class="card">
+<div class="row"><svg viewBox="0 0 90 70" style="width:90px"><use href="#amm" x="0" y="0" width="70" height="70"/></svg><b>표준화석: 공룡, 암모나이트</b><svg viewBox="0 0 130 95" style="width:90px"><use href="#trex" width="130" height="95"/></svg></div>
+<div class="g2" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+<div class="pill" onclick="show('c1')" style="cursor:pointer"><svg viewBox="0 0 60 60" style="width:56px;margin:auto"><circle cx="30" cy="30" r="24" fill="#fff" stroke="#ff8fb8" stroke-width="4"/><path d="M30 14V30L42 36" stroke="#ff8fb8" stroke-width="4" fill="none"><animateTransform attributeName="transform" type="rotate" from="0 30 30" to="360 30 30" dur="3s" repeatCount="indefinite"/></path></svg>1. 생존 기간이 짧다<br>(Short Range)</div>
+<div class="pill"><svg viewBox="0 0 60 60" style="width:56px;margin:auto"><circle cx="30" cy="30" r="24" fill="#8fd3f4"/><path d="M14 22q10-10 18 0t12 10-10 14-14-6z" fill="#9fe3b5"/></svg>2. 분포 면적이 넓다</div>
+<div class="pill"><svg viewBox="0 0 60 60" style="width:56px;margin:auto"><g fill="#ffb86b"><circle cx="12" cy="14" r="6"/><circle cx="30" cy="12" r="6"/><circle cx="48" cy="16" r="6"/><circle cx="20" cy="32" r="6"/><circle cx="40" cy="34" r="6"/><circle cx="12" cy="50" r="6"/><circle cx="32" cy="50" r="6"/><circle cx="50" cy="50" r="6"/></g></svg>3. 개체 수가 많다</div>
+<div class="pill"><svg viewBox="0 0 60 60" style="width:56px;margin:auto"><circle cx="26" cy="26" r="16" fill="none" stroke="#e0709a" stroke-width="5"/><path d="M38 38l14 14" stroke="#e0709a" stroke-width="6" stroke-linecap="round"/></svg>4. 화석으로 발견되기 쉽다</div></div>
+<div class="pill" style="margin-top:8px">🔎 이 화석으로 알 수 있는 것: 세밀한 시대 구분 (생층서학적 가치)</div></div></section>
+
+<!-- 8 시대 말 -->
+<section><h2>⑧ 시대 말 사건</h2><div class="card">
+<svg viewBox="0 0 800 280" id="ex"><rect width="800" height="280" fill="#ffd6c2"/><circle cx="90" cy="50" r="24" fill="#ffe66d"/>
+<g style="animation:fall 3.2s ease-in infinite"><circle cx="680" cy="20" r="18" fill="#7a5a6a"/><path d="M698 6L780-30" stroke="#ff9f4a" stroke-width="12" stroke-linecap="round" opacity=".8"/></g>
+<rect y="220" width="800" height="60" fill="#9fb08f"/>
+<g class="clk" onclick="show('ast')"><circle cx="500" cy="215" r="14" fill="#ff7a4a"><animate attributeName="r" values="6;60;6" dur="3.2s" repeatCount="indefinite"/></circle><circle cx="500" cy="215" r="30" fill="#ffb86b" opacity=".5"><animate attributeName="r" values="4;100;4" dur="3.2s" repeatCount="indefinite"/></circle></g>
+<g fill="#6a5560" opacity=".7"><ellipse cx="220" cy="80" rx="150" ry="36"><animate attributeName="opacity" values=".2;.9;.2" dur="6s" repeatCount="indefinite"/></ellipse><ellipse cx="520" cy="60" rx="200" ry="40"/></g>
+<g transform="rotate(25 120 200)"><use href="#trex" x="60" y="150" width="120" height="88"/></g>
+<text x="20" y="270" font-size="14" fill="#5a3a4a">☄️ 소행성 충돌 → 먼지구름 → 대멸종</text></svg>
+<div class="g2"><div class="pill">사건: 소행성 충돌설 (가장 유력한 원인)</div><div class="pill">원인 요인: 소행성 충돌 (외적 요인)</div></div></div></section>
+
+<!-- 9 시상화석 -->
+<section><h2>⑨ 시상화석과 환경 추론</h2><div class="card">
+<div class="row">
+<button onclick="env('coral')"><svg viewBox="0 0 100 100" style="width:30px;display:inline;vertical-align:middle"><use href="#coral" width="100" height="100"/></svg> 산호</button>
+<button onclick="env('fern')"><svg viewBox="0 0 100 120" style="width:26px;display:inline;vertical-align:middle"><use href="#fern" width="100" height="120"/></svg> 고사리·나자식물</button>
+<button onclick="env('pollen')"><svg viewBox="0 0 100 100" style="width:30px;display:inline;vertical-align:middle"><use href="#pollen" width="100" height="100"/></svg> 꽃가루</button>
+<button onclick="env('foot')"><svg viewBox="0 0 100 100" style="width:30px;display:inline;vertical-align:middle"><use href="#foot" width="100" height="100"/></svg> 발자국(생흔)</button></div>
+<svg viewBox="0 0 800 260" id="envs"></svg><p class="cap" id="envt" style="text-align:center">화석 버튼을 눌러 당시 환경을 확인!</p>
+<div class="pill">건열(말라비틀어진 흔적)과 연흔(물결무늬)이 발자국화석과 함께 자주 발견되는 곳은 호수와 범람원 환경이었음을 알 수 있다</div>
+<div class="g2" style="margin-top:8px"><div class="pill" style="background:#ffd9e8"><b>표준화석</b><br>생존 기간 짧음 ⏱ + 분포 면적 넓음 🌏<br>→ 시대를 알려준다</div><div class="pill" style="background:#d9f3ff"><b>시상화석</b><br>생존 기간 길음 ⏳ + 분포 면적 좁음 📍<br>→ 환경을 알려준다</div></div>
+<div class="g2" style="margin-top:8px"><div class="pill">생존 기간이 길어야 하는 이유: 어느 시대든 이 생물이 발견되면 무조건 이런 환경이었다는 일관된 정보를 주기 위해</div><div class="pill">분포 면적이 좁아야 하는 이유: 아무데서나 잘 사는 생물은 지표가 될 수 없고, 서식 환경이 까다롭고 제한적이어야 특정 환경으로 확정 가능</div></div></div></section>
+
+<!-- 10 원인-결과 -->
+<section><h2>⑩ 환경 변화와 생물 변화의 관계</h2><div class="card">
+<div class="pill" style="margin-bottom:8px">🌊 해양생태계 먹이사슬 하단 플랑크톤의 조성이 변하면서 상위 포식자들의 진화가 촉진되었다</div>
+<div class="g2"><div>
+<svg viewBox="0 0 380 340"><rect width="380" height="340" rx="16" fill="#ffe3d3"/><text x="190" y="22" text-anchor="middle" font-size="15" fill="#e0709a">◀ 원인: 환경 변화</text>
+<g font-size="12" text-anchor="middle"><rect x="40" y="36" width="300" height="46" rx="12" fill="#fff"/><text x="190" y="64">☄️ 소행성 충돌 → 먼지·황산염 입자 먼지구름</text>
+<rect x="40" y="100" width="300" height="46" rx="12" fill="#fff"/><text x="190" y="128">☁️ 먼지구름이 태양 빛을 차단 → 충돌 겨울</text>
+<rect x="40" y="164" width="300" height="46" rx="12" fill="#fff"/><text x="190" y="186">🥶 지표면 온도 급격히 낮아짐</text><text x="190" y="202">빛이 못 들어와 광합성 불가능</text></g>
+<use href="#fern" x="150" y="220" width="70" height="84" opacity=".35"/><path d="M130 300L250 230" stroke="#e0709a" stroke-width="4"/><text x="190" y="330" text-anchor="middle" font-size="12">식물이 죽어간다</text></svg></div>
+<div><svg viewBox="0 0 380 340"><rect width="380" height="340" rx="16" fill="#e3f3ff"/><text x="190" y="22" text-anchor="middle" font-size="15" fill="#3a78c8">결과: 생물 변화 ▶</text>
+<g font-size="12" text-anchor="middle"><rect x="40" y="36" width="300" height="46" rx="12" fill="#fff"/><text x="190" y="64">🌱 먹이사슬의 기초인 식물이 죽어감</text>
+<rect x="40" y="100" width="300" height="46" rx="12" fill="#fff"/><text x="190" y="122">식물을 먹이로 삼던 동물들이 차례로 죽음</text><text x="190" y="138">→ 먹이사슬 붕괴</text></g>
+<g transform="rotate(90 90 205)"><use href="#trex" x="40" y="165" width="100" height="73"/></g><text x="100" y="262" text-anchor="middle" font-size="12">공룡 등 대형 생물 자취를 감춤</text>
+<use href="#mam" x="230" y="170" width="90" height="75"><animateTransform attributeName="transform" type="translate" values="0 0;-14 0;0 0" dur="1.5s" repeatCount="indefinite"/></use><text x="280" y="262" text-anchor="middle" font-size="12">추위·먹이 부족에 일부 생존한 포유류</text><text x="190" y="300" text-anchor="middle" font-size="12" fill="#3a78c8">공룡이 사라진 생태적 공간을 포유류가 차지</text></svg></div></div></div></section>
+
+<footer><b style="font-size:1.3rem">🎀 발표를 들어줘서 고마워요!</b><br><br><b>📚 참고 자료</b><br>최덕근 「태백산분지 삼엽충 화석군과 한반도의 전기 고생대 고지리·고환경 복원에서 그들의 중요성」 · 유용재 「백악기의 끝은 언제인가?」 · 양승훈 「다중격변과 K-T 경계멸종」 · 권성택 「지구와 운석충돌」 · 동아 사이언스 · bric · usgs · <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE01387184" target="_blank" rel="noopener">DBpia</a>
+<br><br><b>🦖 만든 사람</b><br>7반 4모둠 · 권소윤, 김규리, 이다은, 최윤서, 노이설</footer>
+
+<div id="md" onclick="this.classList.remove('on')"><div id="mb" onclick="event.stopPropagation()"></div></div>
+
+<div id="nav"><button id="pv">◀</button><div id="dots"></div><button id="nx">▶</button></div>
+<script>
+const $=id=>document.getElementById(id);
+const D={
+trex:['🦖 티라노사우루스 렉스 · 육상생물',['중생대 백악기 후기(약 6,800만 년 전 ~ 6,600만 년 전)에 생존','주요 서식지: 북아메리카 서부 \'라라미디아(Laramidia)\' — 울창한 숲과 범람원이 발달한 환경','생존에 최적화된 고도의 신체 구조','성체 몸길이 약 13m, 몸무게 보통 6,000kg ~ 8,000kg 추정','무는 힘 약 8,526~34,522뉴턴(N) 추정','시각·후각·청각이 모두 매우 발달','성체는 시속 약 20km 정도','아래턱 끝에 매우 정교한 신경 감지 시스템','번성 이유: 단순한 힘뿐 아니라 고도로 발달한 감각과 무기를 갖추어 백악기 생태계의 정점에 섬']],
+brach:['🦕 브라키오사우루스 · 육상생물',['번성 이유: \'환경에 최적화된 생존 전략\' 덕분','거대한 몸집을 유지하기 위해 경쟁자들과 차별화된 전략을 사용']],
+amm:['🐚 암모나이트 · 해양생물',['번성 이유: \'환경에 최적화된 생존 전략\' 덕분','수억 년 동안 변화하는 바다 환경에 끊임없이 적응하며 번성','표준화석으로 쓰인다']],
+gink:['🌿 은행나무',['찰스 다윈이 처음 사용한 \'살아있는 화석(Living Fossil)\'이라는 별명에 가장 완벽하게 부합','환경 변화에 맞춰 형태를 크게 바꾸지 않고도 성공적으로 생존','중생대는 전반적으로 매우 따뜻하고 습해 은행나무를 비롯한 겉씨식물이 무성한 숲을 이루기에 최적','영양가가 높고 소화가 잘되는 것으로 밝혀짐','특유의 냄새와 성분은 해충과 곰팡이로부터 자신을 보호하는 강력한 항균·살충 작용','양치식물→겉씨식물: 고생대의 양치식물은 포자 번식이라 수정에 반드시 외부의 물이 필요했음','중생대 겉씨식물은 씨앗을 만들기 시작, 씨앗과 꽃가루(풍매)로 물이 적은 내륙까지 퍼져나가 따뜻하고 건조한 기후에 최적화됨']],
+volc:['🌋 활발한 화산 활동',['초대륙 판게아가 쪼개지는 과정에서 지각 변동과 대규모 화산 활동이 끊이지 않았다']],
+ast:['☄️ 소행성 충돌설',['가장 유력한 원인 (외적 요인)','먼지구름이 태양 빛을 차단 → 충돌 겨울 → 광합성 불가 → 먹이사슬 붕괴']],
+c1:['⏱ 짧은 생존 기간 (Short Range)',['표준화석의 조건 1번','짧은 기간에만 살았으므로 지층의 시대를 세밀하게 구분할 수 있다 (생층서학적 가치)']]};
+function show(k){const d=D[k];$('mb').innerHTML='<h3>'+d[0]+'</h3><ul>'+d[1].map(x=>'<li>'+x+'</li>').join('')+'</ul><small>(바깥을 누르면 닫혀요)</small>';$('md').classList.add('on')}
+// pie
+(function(){const c=120,r=90,a=4.1*3.6,rad=x=>(x-90)*Math.PI/180,P=(x)=>[c+r*Math.cos(rad(x)),c+r*Math.sin(rad(x))];
+const [x1,y1]=P(0),[x2,y2]=P(a),[x3,y3]=P(360);const m=rad(a/2);
+$('pie').innerHTML=`<path d="M120 120L${x2} ${y2}A90 90 0 1 1 ${x1} ${y1}Z" fill="#cfe9ff" stroke="#fff" stroke-width="2"/><text x="100" y="150" font-size="13" fill="#3a78c8">그 외 95.9%</text>
+<g class="clk" onclick="show('trex')" style="animation:pulse 1.5s infinite;transform-origin:120px 120px"><path d="M120 120L${x1} ${y1}A90 90 0 0 1 ${x2} ${y2}Z" fill="#ff8fb8" stroke="#fff" stroke-width="2" transform="translate(${Math.cos(m)*14} ${Math.sin(m)*14})"/></g>
+<text x="150" y="18" font-size="13" fill="#e0709a" font-weight="bold">중생대 약 4.1%</text><text x="120" y="232" text-anchor="middle" font-size="12">전체 지질시대</text>`})();
+function clim(s){$('clim').className=s}
+setInterval(()=>{const e=$('clim');e.className=e.className=='warm'?'cold':'warm'},6000);
+function co2(h){$('ice').style.transform=h?'scale(.4)':'scale(1.3)';$('sea').style.transform=h?'translateY(-18px)':'translateY(22px)';$('lv').style.transform=h?'translateY(-18px)':'translateY(22px)';$('co2t').textContent=h?'CO₂ 높음 (2000ppm 이상) → 빙상 감소, 해수면 상승':'CO₂ 낮음 (250ppm) → 빙상 증가, 해수면 하강'}
+co2(1);
+function drift(v,m){v=+v;$('rg').value=v;$('cN').style.transform=`translate(${-v*.9}px,${-v*.5}px)`;$('cS').style.transform=`translate(${v*.9}px,${v*.5}px)`;
+$('pg').textContent=v<15?'판게아':v<60?'갈라지는 중…':'오늘날과 비슷한 배치';
+$('pst').textContent=v<15?'트라이아스기: 모든 대륙이 하나의 초대륙 판게아':v<60?'쥐라기: 판게아가 여러 대륙으로 쪼개지기 시작, 해양과 대륙 분포가 변함':'백악기: 분리된 대륙들이 오늘날과 비슷한 형태를 갖춤'}
+function env(k){const W='<rect width="800" height="260" fill="'; const S={
+coral:[W+'#8fd3f4"/><use href="#coral" x="100" y="120" width="120" height="120"/><use href="#coral" x="300" y="140" width="90" height="90"/><g class="sw"><use href="#amm" x="500" y="60" width="60" height="60"/></g>','🪸 산호 → 바다 환경'],
+fern:[W+'#dff7e0"/><use href="#fern" class="gr" x="80" y="40" width="120" height="180"/><use href="#ginkgo" class="gr" x="300" y="40" width="100" height="170"/><use href="#fern" class="gr" x="520" y="60" width="100" height="150"/><rect y="215" width="800" height="45" fill="#8a6a4a"/>','🌿 고사리·나자식물 → 따뜻하고 습한 숲 환경'],
+pollen:[W+'#e6f8ff"/><use href="#ginkgo" x="80" y="60" width="90" height="150"/><g><use href="#pollen" x="200" y="80" width="30" height="30"><animate attributeName="x" values="200;700" dur="4s" repeatCount="indefinite"/></use><use href="#pollen" x="200" y="120" width="24" height="24"><animate attributeName="x" values="200;700" dur="3s" repeatCount="indefinite"/></use></g><path d="M200 160h400" stroke="#a8d8f5" stroke-width="4" stroke-dasharray="10"/><text x="620" y="150" font-size="14">바람(풍매)</text>','🌼 꽃가루 화석 → 겉씨식물이 바람으로 꽃가루를 퍼뜨리던 육지 환경'],
+foot:[W+'#f2e3c8"/><rect y="150" width="800" height="110" fill="#d8b894"/><path d="M0 120Q100 100 200 120T400 120T600 120T800 120V150H0Z" fill="#8fd3f4"/><path d="M20 190q30-10 60 0t60 0t60 0M20 215q30-10 60 0t60 0t60 0" stroke="#b8926c" stroke-width="4" fill="none"/><path d="M520 175l30 20 20-25 20 30 30-20M500 225l40-15 30 20 40-20" stroke="#8a6a4a" stroke-width="3" fill="none"/><use href="#foot" x="330" y="165" width="50" height="50"/><use href="#foot" x="420" y="195" width="50" height="50"/><g class="walk" style="animation-duration:14s"><use href="#trex" x="0" y="60" width="90" height="66"/></g>','👣 발자국 + 연흔(물결무늬) + 건열 → 호수·범람원 환경']};
+$('envs').innerHTML=S[k][0];$('envt').textContent=S[k][1]}
+env('foot');
+const P=[...document.querySelectorAll('section,footer')],T=['표지','① 시대 구분','② 기후','③ 대기·해양','④ 수륙 분포','⑤ 대표 동물','⑥ 대표 식물','⑦ 표준화석','⑧ 시대 말 사건','⑨ 시상화석','⑩ 환경·생물','출처'];let cur=0;
+const dots=$('dots');P.forEach((_,i)=>{const b=document.createElement('b');b.textContent=i==0?'🏠':i==P.length-1?'🎀':i;b.title=T[i];b.onclick=()=>go(i);dots.appendChild(b)});
+function go(i){cur=Math.max(0,Math.min(P.length-1,i));P.forEach((p,j)=>p.classList.toggle('on',j==cur));[...dots.children].forEach((d,j)=>d.classList.toggle('on',j==cur));dots.children[cur].scrollIntoView({inline:'center',block:'nearest'});window.scrollTo(0,0)}
+$('pv').onclick=()=>go(cur-1);$('nx').onclick=()=>go(cur+1);
+addEventListener('keydown',e=>{if(e.key=='ArrowRight')go(cur+1);if(e.key=='ArrowLeft')go(cur-1)});
+let sx=0;addEventListener('touchstart',e=>{sx=e.touches[0].clientX});addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>80&&!e.target.closest('input'))go(cur+(d<0?1:-1))});
+const C=[['북아메리카','M55 55Q90 35 140 45Q175 55 170 85Q160 110 135 125Q120 140 110 130Q85 110 65 95Q45 75 55 55Z',1,[85,2],0,[110,92]],['남아메리카','M135 150Q165 140 185 160Q190 190 170 230Q158 262 148 268Q138 235 130 200Q122 165 135 150Z',0,[62,-8],0,[158,205]],['유라시아','M255 70Q280 40 340 42Q420 35 500 50Q545 65 535 95Q510 120 480 125Q455 150 440 130Q420 140 395 115Q370 125 345 112Q320 118 300 110Q270 100 255 70Z',1,[0,6],0,[400,88]],['아프리카','M262 125Q300 115 335 125Q352 150 340 185Q325 225 305 250Q290 245 280 215Q262 180 255 150Q250 135 262 125Z',0,[0,0],0,[300,185]],['인도','M405 138L440 138L422 185Z',0,[-70,60],25,[422,158]],['오스트레일리아','M470 200Q505 190 535 205Q545 230 520 242Q490 245 472 225Z',0,[-75,25],0,[505,222]],['남극','M250 272Q350 258 460 272L460 292L250 292Z',0,[-40,-10],0,[355,285]]];
+$('cont').innerHTML=C.map((c,i)=>`<g class="pc" id="pc${i}"><path d="${c[1]}" fill="${c[2]?'#9fe3b5':'#ffd27f'}" stroke="${c[2]?'#6cc79a':'#f0b24a'}" stroke-width="3"/><text x="${c[5][0]}" y="${c[5][1]}" font-size="11" text-anchor="middle" fill="#5a3a4a">${c[0]}</text></g>`).join('');
+drift=function(v){v=+v;$('rg').value=v;const s=1-v/100;C.forEach((c,i)=>{$('pc'+i).style.transform=`translate(${c[3][0]*s}px,${c[3][1]*s}px) rotate(${c[4]*s}deg)`});
+$('pg').textContent=v<15?'판게아 (하나의 초대륙)':v<60?'갈라지는 중…':'오늘날과 비슷한 대륙 배치';
+$('pst').textContent=v<15?'트라이아스기: 모든 대륙이 하나의 초대륙 판게아':v<60?'쥐라기: 판게아가 북반구와 남반구로 분리되고, 여러 대륙으로 쪼개지기 시작':'백악기: 분리된 대륙들이 오늘날과 비슷한 형태를 갖춤'};
+drift(0);
+D.trex=['🦖 티라노사우루스 렉스 · 육상생물',['백악기 후기(약 6,800만 년 전 ~ 6,600만 년 전)에 생존','서식지: 북아메리카 서부 \'라라미디아(Laramidia)\' — 울창한 숲과 범람원이 발달한 환경','생존에 최적화된 고도의 신체 구조 — 성체 몸길이 약 13m, 몸무게 약 6,000kg ~ 8,000kg 추정, 시속 약 20km','무는 힘 약 8,526~34,522뉴턴(N) 추정, 시각·후각·청각이 모두 매우 발달, 아래턱 끝에 정교한 신경 감지 시스템','번성 이유: 단순한 힘뿐 아니라 발달한 감각과 무기를 갖춰 백악기 생태계의 정점에 섬']];
+D.brach=['🦕 브라키오사우루스 · 육상생물',['쥐라기 후기에 살았던 초식공룡','긴 목과 거대한 몸집이 가장 큰 특징','티라노사우루스와 함께 육상생물로 구분','거대한 몸집을 유지하기 위해 경쟁자들과 차별화된 전략을 사용','번성 이유: \'환경에 최적화된 생존 전략\' 덕분']];
+D.amm=['🐚 암모나이트 · 해양생물',['바다에서 헤엄치며 살았던 해양생물','나선형으로 돌돌 말린 껍데기가 특징','수억 년 동안 변화하는 바다 환경에 끊임없이 적응하며 번성','번성 이유: \'환경에 최적화된 생존 전략\' 덕분','표준화석으로 쓰여 지층의 시대를 알려준다']];
+const SY={trex:'0 0 130 95',brach:'0 0 150 130',amm:'0 0 100 100',gink:'0 0 100 140'};
+show=function(k){const d=D[k],v=SY[k];$('mb').innerHTML=(v?`<svg viewBox="${v}" style="width:130px;height:100px;margin:0 auto"><g class="bob"><use href="#${k}" width="${v.split(' ')[2]}" height="${v.split(' ')[3]}"/></g></svg>`:'')+'<h3>'+d[0]+'</h3><ul>'+d[1].map(x=>'<li>'+x+'</li>').join('')+'</ul><small>(바깥을 누르면 닫혀요)</small>';$('md').classList.add('on')};
+go(0);
+</script></body></html>
